@@ -1,0 +1,16 @@
+<div class="card shadow-sm m-2" style="width: 17rem;">
+  <div class="card-img-top" [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + movie.poster_path + ')'"></div>
+  <div class="card-body">
+    <h5 class="card-title">{{movie.title}}</h5>
+    <p class="card-genres">{{movie.genres}}</p>
+    <div class="d-flex justify-content-between">
+      <div class="rating-content">
+        <span><img src="/assets/rating.png" alt=""></span>
+        <span class="card-vote">{{movie.vote_average}}</span>
+      </div>
+      <div class="">
+        <a  class="btn btn-primary btn-detail" (click)="eventEmitOutput(movie);">Detalle</a>
+      </div>
+    </div>
+  </div>
+</div>

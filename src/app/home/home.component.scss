@@ -1,0 +1,97 @@
+@import "movie/rating";
+
+.content-movies {
+  text-align: center;
+}
+
+.card-img-top{
+  max-width: 100%;
+  position: relative;
+  background-size: cover;
+  &:before{
+    content: "";
+    display: block;
+    padding-top: 140%;
+  }
+}
+
+.overview {
+  font-family: GothamRounded-Book;
+  font-size: 16px;
+  color: #212529;
+  overflow-y: auto;
+  max-height: 7.5rem;
+  margin-bottom: 3rem;
+}
+
+.date {
+  font-family: GothamRounded-Medium;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #212529;
+  color: #fff;
+  text-transform: uppercase;
+  .calendar-icon {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 20px;
+    margin-bottom: -2px;
+    height: 18px;
+    background: url(/assets/calendar.svg);
+    background-size: 20px 18px;
+  }
+}
+
+.card-detail {
+  width: 100%;
+  margin-left: 0;
+  margin-bottom: 2rem;
+}
+.card-subtitle {
+  font-family: GothamRounded-Book;
+  font-size: 14px;
+  color: #F59F00;
+}
+.close-card {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+  z-index: 2;
+}
+
+.badge-card {
+  font-size: 100%;
+  text-transform: uppercase;
+  background-color: #e9ecef;
+  color: #212529;
+  padding: 0.6em 1em;
+}
+.rating span {
+  font-family: GothamRounded-Book;
+  font-size: 23px;
+  color: #212529;
+}
+.rating p {
+  color: #9E9E9E;
+  font-family: GothamRounded-Light;
+  font-size: 13px;
+  line-height: 1;
+}
+.rating img {
+  max-height: 20px;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 576px) {
+  .card-img-top {
+    max-width: 20rem;
+  }
+}
+@media (min-width: 769px) {
+  .card-detail {
+    width: 30rem;
+    margin-left: -5rem;
+  }
+}

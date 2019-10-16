@@ -1,0 +1,59 @@
+
+<div class="content-movies">
+  <app-movie *ngFor="let item of movies" [movie]="item" (movieDetailEvent)="openModalDetail($event, templateMovieDetail)"></app-movie>
+</div>
+<div class="d-flex justify-content-center pt-3 pb-4">
+  <pagination [boundaryLinks]="true" [totalItems]="totalItems" [maxSize]="5"  [itemsPerPage]="itemsPerPage" (pageChanged)="setPage($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+</div>
+
+<ng-template #templateMovieDetail class="movie-detail">
+
+  <button type="button" class="close-card close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="row m-0">
+    <div class="col-sm-5 p-0">
+      <div class="card-img-top" [style.background-image]="'url(https://image.tmdb.org/t/p/w500' + dataMovie.poster_path + ')'"></div>
+    </div>
+    <div class="col-sm-7 p-4">
+      <div class="card-detail card shadow-lg">
+        <div class="card-body">
+          <h5 class="card-title">{{dataMovie.title}}</h5>
+          <hr>
+          <span class="border-top my-3"></span>
+          <div class="d-flex">
+            <div class="mr-auto align-self-center"><h6 class="card-subtitle mb-0">{{dataMovie.genres}}</h6></div>
+            <div class="align-self-center"><span class="badge-card badge badge-secondary">{{dataMovie.original_language}}</span></div>
+          </div>
+          <div class="d-flex">
+            <div class="pt-2 flex-fill text-center rating">
+              <span><img src="/assets/rating.png" alt=""></span>
+              <span>{{dataMovie.vote_average}}</span>
+              <p class="mb-0">Rating</p>
+            </div>
+            <div class="pt-2 flex-fill text-center rating">
+              <span><img src="/assets/popularity.png" alt=""></span>
+              <span>{{dataMovie.popularity}}</span>
+              <p class="mb-0">Popularity</p>
+            </div>
+            <div class="pt-2 flex-fill text-center rating">
+              <span><img src="/assets/votes.png" alt=""></span>
+              <span>{{dataMovie.vote_count}}</span>
+              <p class="mb-0">Votes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overview">
+        {{dataMovie.overview}}
+      </div>
+    </div>
+  </div>
+
+  <div class="date p-3">
+    <a href="/" class="calendar-icon"></a>
+    {{dataMovie.release_date | date: 'dd MMM':'ES'}}
+  </div>
+
+</ng-template>
